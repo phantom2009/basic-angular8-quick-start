@@ -1,0 +1,26 @@
+<h2>Products</h2>
+
+<div *ngFor="let product of products">
+	<!-- 声明式导航、属性绑定、路由传参 -->
+	<h3>
+		<a 
+			[title]="product.name + ' details'"
+			[routerLink]="['/products',product.id]"
+			>
+			{{ product.name }}
+		</a>
+	</h3>
+
+	<!-- *ngIf指令 -->
+	<p *ngIf="product.description">Description: {{ product.description }}</p>
+
+	<!-- 事件绑定 -->
+	<button (click)="share()">Share</button>
+
+	<!-- 属性传递可以是普通json数据，也可以是方法 -->
+	<app-product-alerts 
+		[product]="product" 
+		(notify)="onNotify()"
+		[run]="run">
+	</app-product-alerts> 
+</div>
