@@ -1,0 +1,15 @@
+.home{
+    .main{
+        overflow: hidden; 
+        background-color: green;
+        .content{
+            background-color: pink; 
+            position: absolute; 
+            left: 200px; 
+            top: 50px; 
+            right: 0; 
+            bottom: 0; 
+            overflow-y: scroll;
+        }
+    }
+}

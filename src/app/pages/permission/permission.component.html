@@ -1,0 +1,60 @@
+<!--
+    权限
+-->
+<div class="container permission">
+    <div class="search-form">
+        <form [formGroup]="searchForm" (ngSubmit)="onSubmit(searchForm)" (ngReset)="onReset()">
+            <span>
+                <label>名称:</label>
+                <input id="name" type="text" formControlName="name" />
+            </span>
+            <span>
+                <label>类型:</label>
+                <select id="type" formControlName="type">
+                    <option value="perm_type_menu">菜单</option>
+                    <option value="perm_type_interface">接口</option>
+                </select>
+            </span>
+            <span>
+                <button class="button" type="submit">查询</button>
+                <button class="button" type="reset">重置</button>
+            </span>
+        </form>
+    </div>
+
+
+    <div class="edit-permission-dialog">
+        <form [formGroup]="editForm" (ngSubmit)="onEditSubmit(editForm)" (ngReset)="onEditReset()">
+            <span>                
+                <label>名称:</label>
+                <input id="name" type="text" formControlName="name" />             
+            </span>    
+            
+            <span>
+                <label>路径：</label>
+                <input id="url" type="text" formControlName="url" />
+            </span>
+            
+            <span>
+                <label>鉴权标识：</label>
+                <input id="perms" type="text" formControlName="perms" />
+            </span>
+
+            <span>
+                <input type="checkbox" (change)="onPrepareMenuOption($event)" />菜单项
+            </span>
+
+            <span>
+                <label>根菜单</label>
+                <select 
+                    id="rootMenu" 
+                    name="rootMenu" 
+                    formControlName="rootMenu">
+                    <option value="0">根菜单</option>
+                </select>
+            </span>
+
+        </form>
+    </div>
+
+</div>
