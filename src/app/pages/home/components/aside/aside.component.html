@@ -2,6 +2,10 @@
     侧边栏
 -->
 <nav class="aside">
+    <div class="title-container">
+        <img class="logo" src="assets/i2-logo.png" alt="" />
+        <span class="i2-soft-title">艾融软件</span>
+    </div>
     <ul>
         <li>
             <a routerLink="/home/index">首页</a>         
@@ -19,9 +23,14 @@
         <li>
             <span>系统管理</span>
             <ul>
-                <li><a routerLink="/home/permission">权限管理</a></li>
                 <li>
-                    <a routerLink="/home/menu">菜单管理</a>
+                    <a routerLink="/home/permission">定义权限</a>
+                </li>
+                <li>
+                    <a routerLink="/home/role">设置角色</a>
+                </li>
+                <li>
+                    <a routerLink="/home/user">添加用户</a>
                 </li>
             </ul>
         </li>

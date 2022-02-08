@@ -1,12 +1,10 @@
 .home{
     .main{
-        overflow: hidden; 
-        background-color: green;
-        .content{
-            background-color: pink; 
+        overflow: hidden;         
+        .content{           
             position: absolute; 
             left: 200px; 
-            top: 50px; 
+            top: 60px; 
             right: 0; 
             bottom: 0; 
             overflow-y: scroll;

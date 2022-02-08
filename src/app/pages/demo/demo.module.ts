@@ -1,19 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { DemoComponent } from './demo.component';
 import { RouterModule } from '@angular/router';
-import { ReactiveFormsModule } from '@angular/forms';
-import { MenuComponent } from './menu.component';
-
 
 @NgModule({
-	declarations: [MenuComponent],
+	declarations: [DemoComponent],
 	imports: [
 		CommonModule,
 		RouterModule.forChild([{
 			path:"",
-			component:MenuComponent
-		}]),
-		ReactiveFormsModule
+			component:DemoComponent
+		}])
 	]
 })
-export class MenuModule { }
+export class DemoModule { }

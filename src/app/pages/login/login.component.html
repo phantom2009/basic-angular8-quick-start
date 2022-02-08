@@ -1,5 +1,20 @@
 <div class="container login">
-
-
-    <button (click)="handleLogin()">登录</button>
+    <div class="login-form">
+        <!-- 
+            模板语法表单:ngModel显得更加直接、简单，无法使用angular的表单验证能力，
+            angular自己认为FormBuilder扩展性更强，具有完整的表单能力，angular倾向于后者。
+         -->
+        <span class="title">请先登录</span>
+        <span class="form-item">
+            <label>账号：</label>
+            <input type="text" name="username" [(ngModel)]="user.username"  />
+        </span>
+        <span class="form-item">
+            <label>密码：</label>
+            <input type="text" name="password" [(ngModel)]="user.password" />
+        </span>
+        <span class="form-item">
+            <button (click)="handleLogin()">登录</button>
+        </span>
+    </div>    
 </div>

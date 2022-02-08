@@ -2,17 +2,18 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { Routes,RouterModule, NoPreloading } from '@angular/router';
 import { AppComponent } from './app.component';
+import { AuthGuard } from './services/auth.guard';
 
 /**
  *	1、export declare type LoadChildren = LoadChildrenCallback | DeprecatedLoadChildren;
- * 	export declare type DeprecatedLoadChildren = string;		
- * 	loadChildren:"./pages/login/login.module#LoginModule",	
- *	官网文档也有说明使用字符串形式的写法已经是废弃写法，但目前都支持，尽量使用回调函数； 
+ * 		export declare type DeprecatedLoadChildren = string;		
+ * 		loadChildren:"./pages/login/login.module#LoginModule",	
+ *		官网文档也有说明使用字符串形式的写法已经是废弃写法，但目前都支持，尽量使用回调函数； 
  *	2、pathMatch:"full"相当于其他路由“exact”;
  */
 const routes:Routes=[{
 	path:'', 
-	redirectTo: 'test', 
+	redirectTo: 'login', 
 	pathMatch: 'full'
 },{
 	path:"login",
@@ -22,10 +23,15 @@ const routes:Routes=[{
     }
 },{
 	path:"home",
+	canActivate:[AuthGuard],
+	canActivateChild:[AuthGuard],
 	loadChildren:()=>import("./pages/home/home.module").then(m=>m.HomeModule)
 },{
 	path:"test",
 	loadChildren:()=>import("./pages/test/test.module").then(m=>m.TestModule)
+},{
+	path:"demo",
+	loadChildren:()=>import("./pages/demo/demo.component").then(m=>m.DemoComponent)
 }];
 
 /**
@@ -40,7 +46,7 @@ const routes:Routes=[{
 		BrowserModule,
 		RouterModule.forRoot(routes,{preloadingStrategy:NoPreloading})
 	],
-	providers: [],
+	providers: [AuthGuard],
 	bootstrap: [AppComponent]
 })
 export class AppModule { }

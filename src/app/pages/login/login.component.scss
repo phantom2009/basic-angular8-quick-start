@@ -1,0 +1,25 @@
+.login{
+    position: relative;
+    .login-form{
+        position: absolute;
+        width: 320px;
+        height: 200px;
+        top:0;bottom:0;margin-top:auto;margin-bottom:auto;  /* 上下绝对居中 */
+        left:0;right:0;margin-left:auto;margin-right:auto;  /* 左右绝对居中 */
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        padding: 10px;
+        .title{
+           font-size: 20px; font-weight: 400; display: block;
+        }
+        .form-item{
+            display: block; height: 32px; margin: 10px auto;
+            input{
+                height: 24px; border-radius: 4px; border-color: #ccc; text-indent: 5px; width: 240px;
+            }
+            button{
+                padding:5px; border-radius: 4px; min-width: 80px;
+            }
+        }
+    }
+}

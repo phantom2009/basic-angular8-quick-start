@@ -24,6 +24,7 @@
 
 
     <div class="edit-permission-dialog">
+        <h3>编辑权限</h3>
         <form [formGroup]="editForm" (ngSubmit)="onEditSubmit(editForm)" (ngReset)="onEditReset()">
             <span>                
                 <label>名称:</label>
@@ -40,21 +41,45 @@
                 <input id="perms" type="text" formControlName="perms" />
             </span>
 
+            <br />
             <span>
                 <input type="checkbox" (change)="onPrepareMenuOption($event)" />菜单项
             </span>
 
+            <br />           
             <span>
-                <label>根菜单</label>
+                <label>父菜单</label>
                 <select 
                     id="rootMenu" 
                     name="rootMenu" 
                     formControlName="rootMenu">
                     <option value="0">根菜单</option>
+                    <option *ngFor="let menu of rootMenus" [value]="menu.id">
+                        {{menu.name}}
+                    </option>
                 </select>
             </span>
 
+            <span>
+                <label>排序</label>
+                <input id="sort" type="text" placeholder="请输入排序值" formControlName="sort" /> 
+            </span>
+            
+            <span>
+                <label>icon</label>
+                <input id="icon" type="text" placeholder="请输入icon名称" formControlName="icon" />
+            </span>
+
+            <span>
+                <label>是否锁定</label>                
+                <select id="isLock" placeholder="请选择是否锁定" formControlName="isLock">
+                    <option value="0">否</option>
+                    <option value="1">是</option>
+                </select>
+            </span>
         </form>
     </div>
+    <!-- datagrid -->
+    
 
 </div>

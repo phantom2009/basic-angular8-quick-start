@@ -1,0 +1,101 @@
+.btn{
+	display: inline-block;  
+	padding: 5px 15px 4px 15px; 
+    margin-bottom: 0; 
+    font-size: 14px;
+	line-height: 28px; 
+    text-align: center;
+    vertical-align: middle;
+	cursor: pointer;
+    border-radius: 4px;
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+.btn-warning{
+	color: #fff; 
+    background-color: orange;
+    border: none;
+}
+.btn-warning:hover{
+	color: #fff;
+    background-color: red;
+}
+.btn:focus{
+	outline: none;
+}
+/* app */
+.todo-container{
+	width: 800px;
+}
+.todo-container .todo-wrap{
+	padding: 10px;
+    border: 1px solid #ddd;
+	border-radius: 5px;
+}
+.todo-container .todo-wrap .todo-header > input{
+	width: 761px;
+    height: 28px;
+    font-size: 14px;
+	border: 1px solid #ccc;
+    border-radius: 4px;
+	padding: 4px 7px;
+    outline: none;
+}
+.todo-container .todo-wrap .todo-header > input:focus{
+	outline: none;
+  	border-color: rgba(255, 0, 0, 0.8);
+  	box-shadow: inset 0 1px 1px rgba(255, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6);
+}
+/* main ul li*/
+.todo-main {
+    margin-left: 0;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    padding: 0;
+}
+.todo-empty {
+    height: 40px;
+    line-height: 40px;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    padding-left: 5px;
+    margin-top: 10px;
+}
+/*item*/
+li {
+    list-style: none;
+    height: 42px;
+    line-height: 62px;
+    padding: 0 5px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+li label {
+    cursor: pointer;
+}
+li button.btn {
+    /*display: none;*/
+    display: inline-block; 
+ 
+}
+li:before {
+    content: initial;
+}
+li:last-child {
+    border-bottom: none;
+}
+/*footer*/
+.todo-footer {
+    height: 40px;line-height: 40px; padding-left: 6px; margin-top: 5px;
+}
+.todo-footer label {
+    display: inline-block; margin-right: 20px; cursor: pointer;
+}
+.todo-footer label input {
+    position: relative; top: -1px; vertical-align: middle;
+}
+.todo-footer button {
+    float: right; margin-top: 5px;
+}
+

@@ -1,1 +1,44 @@
-<p>todos works!</p>
+<div class="page-container todo-container">
+    <div class="todo-wrap">
+        <div class="todo-header">
+            <input 
+                type="text" 
+                placeholder="请输入今天的任务，按回车键确认"
+                (keydown)="onKeydown($event)" />	
+        </div>
+        <ul class="todo-main">
+            <li 
+                *ngFor="let item of todos;index as i" 
+                (mouseover)="onMouseOver(i,$event)"
+                (mouseout)="onMouseOut(i,$event)">
+                <label>
+                    <input 
+                        type="checkbox" 
+                        [checked]="item.isFinished" 
+                        (change)="onTodoStatusChange(item.id,!item.isFinished,$event)" />
+                    <span>{{item.title}}</span>
+                </label>
+                <button 
+                    class="btn btn-warning"
+                    [ngStyle]="{'display': item.activate ? 'inline-block' : 'none' }"
+                    (click)="onRemoveTodoById(item.id)">
+                    删除
+                </button>
+            </li>
+        </ul>
+        <div class="todo-footer">
+            <label>
+                <input 
+                    type="checkbox" 
+                    [checked]="finishedCount === todos.length"
+                    (change)="onChangeSelectAllTodos(finishedCount !== todos.length,$event)" />
+            </label>
+            <span><span>已完成{{finishedTodos}}件</span> / 总计{{todos.length}}件</span>
+            <button
+                class="btn btn-warning" (click)="onClearFinishedTodos()">
+                清除已完成任务
+            </button>
+        </div>
+
+    </div>
+</div>

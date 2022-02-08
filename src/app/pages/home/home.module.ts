@@ -4,12 +4,17 @@ import { RouterModule,Routes } from "@angular/router"
 import { HomeComponent } from './home.component';
 import { AsideComponent } from './components/aside/aside.component';
 import { HeaderComponent } from './components/header/header.component';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientService } from 'src/app/services/httpclient.service';
 
 const routes:Routes=[{
 	path:"",
 	component:HomeComponent,
-	//pathMatch: 'full',
 	children:[{
+		path:"",
+		redirectTo:"index",
+		pathMatch:"full"
+	},{
 		path:"index",
 		loadChildren:()=>import("./../index/index.module").then(m=>m.IndexModule)
 	},{
@@ -18,9 +23,6 @@ const routes:Routes=[{
 	},{
 		path:"permission",
 		loadChildren:()=>import("./../permission/permission.module").then(m=>m.PermissionModule)
-	},{
-		path:"menu",
-		loadChildren:()=>import("./../menu/menu.module").then(m=>m.MenuModule)
 	}]
 }]
 
@@ -28,7 +30,9 @@ const routes:Routes=[{
 	declarations: [HomeComponent, AsideComponent, HeaderComponent],
 	imports: [
 		CommonModule,
-		RouterModule.forChild(routes)
-	]
+		RouterModule.forChild(routes),
+		HttpClientModule
+	],
+	providers:[HttpClientService]
 })
 export class HomeModule { }

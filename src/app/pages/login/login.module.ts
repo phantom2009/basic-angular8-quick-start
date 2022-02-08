@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from "@angular/router"
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login.component';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientService } from 'src/app/services/httpclient.service';
 
 @NgModule({
 	declarations: [LoginComponent],
@@ -12,7 +14,9 @@ import { LoginComponent } from './login.component';
 			path:"",
 			component:LoginComponent
 		}]),
-		FormsModule
-	]
+		FormsModule,
+		HttpClientModule
+	],
+	providers:[HttpClientService]
 })
 export class LoginModule { }

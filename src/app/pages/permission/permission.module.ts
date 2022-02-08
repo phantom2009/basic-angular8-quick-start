@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PermissionComponent } from './permission.component';
-
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientService } from 'src/app/services/httpclient.service';
 @NgModule({
 	declarations: [PermissionComponent],
 	imports: [
@@ -12,7 +13,9 @@ import { PermissionComponent } from './permission.component';
 			path:"",
 			component:PermissionComponent
 		}]),
-		ReactiveFormsModule
-	]
+		ReactiveFormsModule,
+		HttpClientModule
+	],
+	providers:[HttpClientService]
 })
 export class PermissionModule { }
